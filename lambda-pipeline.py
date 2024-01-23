@@ -1,5 +1,5 @@
 import boto3
-lambda_Client = boto3.client('lambda')
+lambda_Client = boto3.client('lambda', region_name='us-east-1')
 response =lambda_Client.create_function(
           Code={
                 'S3Bucket': 'cloudeng-buck',
