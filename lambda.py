@@ -1,14 +1,11 @@
 import boto3
-lambda_Client = boto3.client('lambda')
-response =lambda_Client.create_function(
-          Code={
-                'S3Bucket': 'cloudeng-buck',
-                'S3Key': 'lambda.zip', #how can i create or fetch this S3Key
-          },
-          Description='Process image objects from Amazon S3.',
-          FunctionName="demo",
-          Handler='lambda.lambda_handler',
-          Publish=True,
-          Role='arn:aws:iam::987075663466:role/lambda-boto3',
-          Runtime='python3.12'
-          )
+
+client = boto3.client('ec2', region_name= 'us-east-1')
+response = client.run_instances(
+    ImageId='ami-0e9107ed11be76fde',
+    InstanceType='t2.micro',
+    KeyName='docker',
+    MaxCount=1,
+    MinCount=1
+)
+
