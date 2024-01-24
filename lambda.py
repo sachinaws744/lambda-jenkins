@@ -1,11 +1,11 @@
 import json
 import boto3
 def lambda_handler(event, context):
-    client = boto3.client('ec2', region_name= 'us-east-1')
+    client = boto3.client('ec2', region_name= 'ap-south-1')
     response = client.run_instances(
-           ImageId='ami-0e9107ed11be76fde',
+           ImageId='ami-00952f27cf14db9cd',
            InstanceType='t2.micro',
-           KeyName='docker',
+           KeyName='terraform_mumbai',
            MaxCount=1,
            MinCount=1
            )
