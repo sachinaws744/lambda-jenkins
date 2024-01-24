@@ -1,14 +1,14 @@
 import boto3
-lambda_Client = boto3.client('lambda', region_name='us-east-1')
+lambda_Client = boto3.client('lambda', region_name='ap-south-1')
 response =lambda_Client.create_function(
           Code={
-                'S3Bucket': 'cloudeng-buck',
-                'S3Key': 'lambda.zip', #how can i create or fetch this S3Key
+                'S3Bucket': 'pratibha007',
+                'S3Key': 'lambda.py.zip', #how can i create or fetch this S3Key
           },
           Description='Process image objects from Amazon S3.',
           FunctionName="check",
           Handler='lambda.lambda_handler',
           Publish=True,
-          Role='arn:aws:iam::987075663466:role/lambda-boto3',
+          Role='arn:aws:iam::351246850509:role/lambda_admin',
           Runtime='python3.12'
           )
